@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIMA SPECIAL INVESTMENTS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .carousel-item {
+            height: 70vh;
+            position: relative;
+        }
+        
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .section-padding {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            height: 100%;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .project-card {
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* Estilos del Chatbot de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            color: #FFF;
+            transform: scale(1.1);
+        }
+
+        .stats-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            display: none;
+            z-index: 1000;
+            min-width: 120px;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 5px 10px;
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .language-dropdown a:hover {
+            background-color: var(--light-color);
+        }
+        
+        .language-selector:hover .language-dropdown {
+            display: block;
+        }
+        
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                height: 70vh;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-item {
+                height: 50vh;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="images/logo.png" alt="SHIMA SPECIAL INVESTMENTS">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-lang-es="Inicio" data-lang-en="Home" data-lang-ru="Главная">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-lang-es="Acerca de Nosotros" data-lang-en="About Us" data-lang-ru="О нас">Acerca de Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services" data-lang-es="Servicios" data-lang-en="Services" data-lang-ru="Услуги">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects" data-lang-es="Proyectos" data-lang-en="Projects" data-lang-ru="Проекты">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-lang-es="Contacto" data-lang-en="Contact" data-lang-ru="Контакт">Contacto</a>
+                    </li>
+                    <li class="nav-item language-selector">
+                        <a class="nav-link" href="#" id="currentLang">
+                            <i class="fas fa-globe"></i> ES
+                        </a>
+                        <div class="language-dropdown">
+                            <a href="#" onclick="changeLanguage('es')"><i class="flag-icon flag-icon-es"></i> Español</a>
+                            <a href="#" onclick="changeLanguage('en')"><i class="flag-icon flag-icon-us"></i> English</a>
+                            <a href="#" onclick="changeLanguage('ru')"><i class="flag-icon flag-icon-ru"></i> Русский</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="video1/videop.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="lang-content active" data-lang="es">SHIMA SPECIAL INVESTMENTS</span>
+                <span class="lang-content" data-lang="en">SHIMA SPECIAL INVESTMENTS</span>
+                <span class="lang-content" data-lang="ru">SHIMA SPECIAL INVESTMENTS</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="lang-content active" data-lang="es">Ingeniería Civil Global con Visión de Futuro</span>
+                <span class="lang-content" data-lang="en">Global Civil Engineering with Future Vision</span>
+                <span class="lang-content" data-lang="ru">Глобальное гражданское строительство с видением будущего</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary btn-lg">
+                    <span class="lang-content active" data-lang="es">Conócenos</span>
+                    <span class="lang-content" data-lang="en">About Us</span>
+                    <span class="lang-content" data-lang="ru">О нас</span>
+                </a>
+                <a href="#projects" class="btn btn-outline-light btn-lg">
+                    <span class="lang-content active" data-lang="es">Nuestros Proyectos</span>
+                    <span class="lang-content" data-lang="en">Our Projects</span>
+                    <span class="lang-content" data-lang="ru">Наши проекты</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="images/sitemanager.png" alt="Jefe de Obra" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">
+                        <span class="lang-content active" data-lang="es">Nuestra Visión Única</span>
+                        <span class="lang-content" data-lang="en">Our Unique Vision</span>
+                        <span class="lang-content" data-lang="ru">Наше уникальное видение</span>
+                    </h2>
+                    <div class="lang-content active" data-lang="es">
+                        <p>En SHIMA, con origen en Panamá, redefinimos la construcción. Fusionamos la última tecnología (métodos, maquinaria, elementos innovadores) con la artesanía y técnicas ancestrales cuando la obra lo requiere, creando soluciones eficientes, duraderas y bellas.</p>
+                        <p>Nuestra "Paleta de Trabajos Atractiva" se basa en la integración. Utilizamos la ingeniería de vanguardia para la eficiencia, pero valoramos la artesanía y los elementos probados para la calidad y la integración estética. Tecnología y tradición trabajando juntas.</p>
+                    </div>
+                    <div class="lang-content" data-lang="en">
+                        <p>At SHIMA, originating in Panama, we are redefining construction. We merge the latest technology (methods, machinery, innovative elements) with craftsmanship and ancestral techniques when the project requires it, creating efficient, durable and beautiful solutions.</p>
+                        <p>Our "Attractive Work Palette" is based on integration. We use cutting-edge engineering for efficiency, but we value craftsmanship and proven elements for quality and aesthetic integration. Technology and tradition working together.</p>
+                    </div>
+                    <div class="lang-content" data-lang="ru">
+                        <p>В SHIMA, берущей начало в Панаме, мы переопределяем строительство. Мы объединяем новейшие технологии (методы, оборудование, инновационные элементы) с ремеслом и древними техниками, когда это требуется проектом, создавая эффективные, долговечные и красивые решения.</p>
+                        <p>Наша "Привлекательная палитра работ" основана на интеграции. Мы используем передовые инженерные решения для эффективности, но ценим ремесло и проверенные элементы для качества и эстетической интеграции. Технология и традиция работают вместе.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">
+                <span class="lang-content active" data-lang="es">Cifras Clave</span>
+                <span class="lang-content" data-lang="en">Key Figures</span>
+                <span class="lang-content" data-lang="ru">Ключевые показатели</span>
+            </h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="stats-box">
+                        <div class="stats-number">20+ Billones USD</div>
+                        <div class="lang-content active" data-lang="es">Proyección de cartera para los próximos 5 años</div>
+                        <div class="lang-content" data-lang="en">Portfolio projection for the next 5 years</div>
+                        <div class="lang-content" data-lang="ru">Прогноз портфеля на следующие 5 лет</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="stats-box">
+                        <div class="stats-number">2</div>
+                        <div class="lang-content active" data-lang="es">Continentes: Iberoamérica y África</div>
+                        <div class="lang-content" data-lang="en">Continents: Ibero-America and Africa</div>
+                        <div class="lang-content" data-lang="ru">Континенты: Иберо-Америка и Африка</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="stats-box">
+                        <div class="stats-number">100%</div>
+                        <div class="lang-content active" data-lang="es">Compromiso con la excelencia</div>
+                        <div class="lang-content" data-lang="en">Commitment to excellence</div>
+                        <div class="lang-content" data-lang="ru">Приверженность совершенству</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-content active" data-lang="es">🌍 Construyendo el Mañana, Hoy</span>
+                <span class="lang-content" data-lang="en">🌍 Building Tomorrow, Today</span>
+                <span class="lang-content" data-lang="ru">🌍 Строим завтра, сегодня</span>
+            </h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="lang-content active" data-lang="es">
+                        <h3>Historia y Origen</h3>
+                        <p>SHIMA SPECIAL INVESTMENTS nace en Panamá con una clara intención: ser el puente entre el legado de la construcción tradicional y las exigencias de la ingeniería moderna. Nuestro enfoque es global, centrado en impulsar el desarrollo de la infraestructura civil en Iberoamérica y África.</p>
+                        
+                        <h3>El Equipo Técnico</h3>
+                        <p>El activo más valioso de SHIMA es nuestro capital humano. Contamos con un equipo técnico multidisciplinario de élite: Ingenieros, Arquitectos y Técnicos con amplia experiencia laboral consolidada en las empresas líderes del sector. Expertos listos para superar cualquier desafío técnico.</p>
+                    </div>
+                    <div class="lang-content" data-lang="en">
+                        <h3>History and Origin</h3>
+                        <p>SHIMA SPECIAL INVESTMENTS was born in Panama with a clear intention: to be the bridge between the legacy of traditional construction and the demands of modern engineering. Our approach is global, focused on driving the development of civil infrastructure in Ibero-America and Africa.</p>
+                        
+                        <h3>The Technical Team</h3>
+                        <p>SHIMA's most valuable asset is our human capital. We have an elite multidisciplinary technical team: Engineers, Architects and Technicians with extensive work experience consolidated in the leading companies in the sector. Experts ready to overcome any technical challenge.</p>
+                    </div>
+                    <div class="lang-content" data-lang="ru">
+                        <h3>История и происхождение</h3>
+                        <p>SHIMA SPECIAL INVESTMENTS родилась в Панаме с четким намерением: стать мостом между наследием традиционного строительства и требованиями современной инженерии. Наш подход глобальный, ориентированный на развитие гражданской инфраструктуры в Иберо-Америке и Африке.</p>
+                        
+                        <h3>Техническая команда</h3>
+                        <p>Самый ценный актив SHIMA - это наш человеческий капитал. У нас есть элитная многопрофильная техническая команда: инженеры, архитекторы и техники с обширным опытом работы, закрепленным в ведущих компаниях отрасли. Эксперты, готовые преодолеть любую техническую проблему.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/project.png" alt="Despacho de Arquitectos" class="img-fluid rounded">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body p-4">
+                            <h3 class="card-title">
+                                <span class="lang-content active" data-lang="es">Misión</span>
+                                <span class="lang-content" data-lang="en">Mission</span>
+                                <span class="lang-content" data-lang="ru">Миссия</span>
+                            </h3>
+                            <p class="card-text">
+                                <span class="lang-content active" data-lang="es">Ejecutar proyectos de infraestructura civil de alto impacto, superando las expectativas del cliente a través de la excelencia técnica, la innovación y el compromiso con el desarrollo sostenible.</span>
+                                <span class="lang-content" data-lang="en">Execute high-impact civil infrastructure projects, exceeding client expectations through technical excellence, innovation and commitment to sustainable development.</span>
+                                <span class="lang-content" data-lang="ru">Выполнять высокоэффективные проекты гражданской инфраструктуры, превосходя ожидания клиентов благодаря техническому совершенству, инновациям и приверженности устойчивому развитию.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-content active" data-lang="es">⚙️ Especialización en Infraestructura Civil de Alto Calibre</span>
+                <span class="lang-content" data-lang="en">⚙️ Specialization in High-Caliber Civil Infrastructure</span>
+                <span class="lang-content" data-lang="ru">⚙️ Специализация на высококачественной гражданской инфраструктуре</span>
+            </h2>
+            <div class="lang-content active" data-lang="es">
+                <p class="mb-5">Nos especializamos en Construcción Civil e Infraestructura Civil a gran escala, ofreciendo una ejecución integral desde la conceptualización hasta la puesta en marcha.</p>
+            </div>
+            <div class="lang-content" data-lang="en">
+                <p class="mb-5">We specialize in large-scale Civil Construction and Civil Infrastructure, offering comprehensive execution from conceptualization to commissioning.</p>
+            </div>
+            <div class="lang-content" data-lang="ru">
+                <p class="mb-5">Мы специализируемся на крупномасштабном гражданском строительстве и гражданской инфраструктуре, предлагая комплексное выполнение от концептуализации до ввода в эксплуатацию.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-content active" data-lang="es">Energías Renovables</span>
+                            <span class="lang-content" data-lang="en">Renewable Energy</span>
+                            <span class="lang-content" data-lang="ru">Возобновляемая энергия</span>
+                        </h4>
+                        <div class="lang-content active" data-lang="es">
+                            <p>Plantas solares, eólicas y proyectos de transmisión para un futuro sostenible.</p>
+                        </div>
+                        <div class="lang-content" data-lang="en">
+                            <p>Solar plants, wind farms and transmission projects for a sustainable future.</p>
+                        </div>
+                        <div class="lang-content" data-lang="ru">
+                            <p>Солнечные электростанции, ветряные фермы и проекты передачи для устойчивого будущего.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-content active" data-lang="es">Infraestructura de Transporte</span>
+                            <span class="lang-content" data-lang="en">Transport Infrastructure</span>
+                            <span class="lang-content" data-lang="ru">Транспортная инфраструктура</span>
+                        </h4>
+                        <div class="lang-content active" data-lang="es">
+                            <p>Puentes, carreteras, viaductos y puertos que conectan comunidades y facilitan el comercio.</p>
+                        </div>
+                        <div class="lang-content" data-lang="en">
+                            <p>Bridges, roads, viaducts and ports that connect communities and facilitate trade.</p>
+                        </div>
+                        <div class="lang-content" data-lang="ru">
+                            <p>Мосты, дороги, виадуки и порты, соединяющие сообщества и способствующие торговле.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-content active" data-lang="es">Minería e Hidrocarburos</span>
+                            <span class="lang-content" data-lang="en">Mining and Hydrocarbons</span>
+                            <span class="lang-content" data-lang="ru">Горнодобывающая промышленность и углеводороды</span>
+                        </h4>
+                        <div class="lang-content active" data-lang="es">
+                            <p>Infraestructura de soporte, plantas de procesamiento y logística asociada.</p>
+                        </div>
+                        <div class="lang-content" data-lang="en">
+                            <p>Support infrastructure, processing plants and associated logistics.</p>
+                        </div>
+                        <div class="lang-content" data-lang="ru">
+                            <p>Вспомогательная инфраструктура, перерабатывающие заводы и связанная логистика.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-content active" data-lang="es">Gestión de Residuos (RSU)</span>
+                            <span class="lang-content" data-lang="en">Waste Management (MSW)</span>
+                            <span class="lang-content" data-lang="ru">Управление отходами (ТБО)</span>
+                        </h4>
+                        <div class="lang-content active" data-lang="es">
+                            <p>Plantas de tratamiento, vertederos controlados y soluciones de valorización energética.</p>
+                        </div>
+                        <div class="lang-content" data-lang="en">
+                            <p>Treatment plants, controlled landfills and energy recovery solutions.</p>
+                        </div>
+                        <div class="lang-content" data-lang="ru">
+                            <p>Очистные сооружения, контролируемые свалки и решения по энергетической утилизации.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-content active" data-lang="es">Infraestructura Hídrica y Civil</span>
+                            <span class="lang-content" data-lang="en">Water and Civil Infrastructure</span>
+                            <span class="lang-content" data-lang="ru">Водная и гражданская инфраструктура</span>
+                        </h4>
+                        <div class="lang-content active" data-lang="es">
+                            <p>Presas, acueductos, hospitales y edificaciones complejas.</p>
+                        </div>
+                        <div class="lang-content" data-lang="en">
+                            <p>Dams, aqueducts, hospitals and complex buildings.</p>
+                        </div>
+                        <div class="lang-content" data-lang="ru">
+                            <p>Плотины, акведуки, больницы и сложные здания.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-content active" data-lang="es">Desarrollo Inmobiliario</span>
+                            <span class="lang-content" data-lang="en">Real Estate Development</span>
+                            <span class="lang-content" data-lang="ru">Недвижимость</span>
+                        </h4>
+                        <div class="lang-content active" data-lang="es">
+                            <p>Proyectos residenciales, comerciales y mixtos que transforman el paisaje urbano.</p>
+                        </div>
+                        <div class="lang-content" data-lang="en">
+                            <p>Residential, commercial and mixed-use projects that transform the urban landscape.</p>
+                        </div>
+                        <div class="lang-content" data-lang="ru">
+                            <p>Жилые, коммерческие и смешанные проекты, преобразующие городской ландшафт.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-content active" data-lang="es">🗺️ Nuestro Impacto en Iberoamérica y África</span>
+                <span class="lang-content" data-lang="en">🗺️ Our Impact in Ibero-America and Africa</span>
+                <span class="lang-content" data-lang="ru">🗺️ Наше влияние в Иберо-Америке и Африке</span>
+            </h2>
+            <div class="lang-content active" data-lang="es">
+                <p class="mb-5">Una muestra de nuestro compromiso con la excelencia y la capacidad de enfrentar proyectos ambiciosos en diversas geografías y sectores.</p>
+            </div>
+            <div class="lang-content" data-lang="en">
+                <p class="mb-5">A sample of our commitment to excellence and the ability to face ambitious projects in different geographies and sectors.</p>
+            </div>
+            <div class="lang-content" data-lang="ru">
+                <p class="mb-5">Пример нашего приверженности совершенству и способности реализовывать амбициозные проекты в различных географических регионах и отраслях.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/hidro.png" alt="Proyecto Hidroeléctrico">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="lang-content active" data-lang="es">Proyecto Hidroeléctrico</span>
+                                <span class="lang-content" data-lang="en">Hydroelectric Project</span>
+                                <span class="lang-content" data-lang="ru">Гидроэлектрический проект</span>
+                            </h5>
+                            <div class="mb-2">
+                                <span class="badge bg-primary">
+                                    <span class="lang-content active" data-lang="es">Energía</span>
+                                    <span class="lang-content" data-lang="en">Energy</span>
+                                    <span class="lang-content" data-lang="ru">Энергия</span>
+                                </span>
+                            </div>
+                            <div class="lang-content active" data-lang="es">
+                                <p class="card-text">Ubicación: Perú. Tecnología Clave: Integración de sistemas de generación tradicionales con tecnología de monitoreo avanzada para optimizar la producción.</p>
+                            </div>
+                            <div class="lang-content" data-lang="en">
+                                <p class="card-text">Location: Peru. Key Technology: Integration of traditional generation systems with advanced monitoring technology to optimize production.</p>
+                            </div>
+                            <div class="lang-content" data-lang="ru">
+                                <p class="card-text">Местоположение: Перу. Ключевая технология: Интеграция традиционных систем генерации с передовыми технологиями мониторинга для оптимизации производства.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/port.png" alt="Proyecto Portuario">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="lang-content active" data-lang="es">Modernización Portuaria</span>
+                                <span class="lang-content" data-lang="en">Port Modernization</span>
+                                <span class="lang-content" data-lang="ru">Модернизация порта</span>
+                            </h5>
+                            <div class="mb-2">
+                                <span class="badge bg-primary">
+                                    <span class="lang-content active" data-lang="es">Transporte</span>
+                                    <span class="lang-content" data-lang="en">Transport</span>
+                                    <span class="lang-content" data-lang="ru">Транспорт</span>
+                                </span>
+                            </div>
+                            <div class="lang-content active" data-lang="es">
+                                <p class="card-text">Ubicación: Panamá. Desafío: Ampliación de muelles y optimización de operaciones logísticas para aumentar la capacidad en un 40%.</p>
+                            </div>
+                            <div class="lang-content" data-lang="en">
+                                <p class="card-text">Location: Panama. Challenge: Expansion of docks and optimization of logistics operations to increase capacity by 40%.</p>
+                            </div>
+                            <div class="lang-content" data-lang="ru">
+                                <p class="card-text">Местоположение: Панама. Проблема: Расширение причалов и оптимизация логистических операций для увеличения мощности на 40%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/roads.png" alt="Proyecto de Carreteras">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="lang-content active" data-lang="es">Corredor Vial Transnacional</span>
+                                <span class="lang-content" data-lang="en">Transnational Road Corridor</span>
+                                <span class="lang-content" data-lang="ru">Транснациональный дорожный коридор</span>
+                            </h5>
+                            <div class="mb-2">
+                                <span class="badge bg-primary">
+                                    <span class="lang-content active" data-lang="es">Transporte</span>
+                                    <span class="lang-content" data-lang="en">Transport</span>
+                                    <span class="lang-content" data-lang="ru">Транспорт</span>
+                                </span>
+                            </div>
+                            <div class="lang-content active" data-lang="es">
+                                <p class="card-text">Ubicación: África Occidental. Desafío: Construcción de 450 km de carreteras con técnicas de pavimentación sostenible y resistente a condiciones climáticas extremas.</p>
+                            </div>
+                            <div class="lang-content" data-lang="en">
+                                <p class="card-text">Location: West Africa. Challenge: Construction of 450 km of roads with sustainable paving techniques resistant to extreme weather conditions.</p>
+                            </div>
+                            <div class="lang-content" data-lang="ru">
+                                <p class="card-text">Местоположение: Западная Африка. Проблема: Строительство 450 км дорог с использованием устойчивых методов дорожного покрытия, устойчивых к экстремальным погодным условиям.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/housing.png" alt="Desarrollo Inmobiliario">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="lang-content active" data-lang="es">Complejo Residencial Sostenible</span>
+                                <span class="lang-content" data-lang="en">Sustainable Residential Complex</span>
+                                <span class="lang-content" data-lang="ru">Устойчивый жилой комплекс</span>
+                            </h5>
+                            <div class="mb-2">
+                                <span class="badge bg-primary">
+                                    <span class="lang-content active" data-lang="es">Desarrollo Inmobiliario</span>
+                                    <span class="lang-content" data-lang="en">Real Estate Development</span>
+                                    <span class="lang-content" data-lang="ru">Недвижимость</span>
+                                </span>
+                            </div>
+                            <div class="lang-content active" data-lang="es">
+                                <p class="card-text">Ubicación: Colombia. Tecnología Clave: Integración de sistemas de energía solar, recolección de agua de lluvia y materiales de construcción reciclados.</p>
+                            </div>
+                            <div class="lang-content" data-lang="en">
+                                <p class="card-text">Location: Colombia. Key Technology: Integration of solar energy systems, rainwater collection and recycled building materials.</p>
+                            </div>
+                            <div class="lang-content" data-lang="ru">
+                                <p class="card-text">Местоположение: Колумбия. Ключевая технология: Интеграция систем солнечной энергии, сбора дождевой воды и переработанных строительных материалов.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/train.png" alt="Obra Ferroviaria">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="lang-content active" data-lang="es">Línea Ferroviaria de Alta Velocidad</span>
+                                <span class="lang-content" data-lang="en">High-Speed Railway Line</span>
+                                <span class="lang-content" data-lang="ru">Высокоскоростная железнодорожная линия</span>
+                            </h5>
+                            <div class="mb-2">
+                                <span class="badge bg-primary">
+                                    <span class="lang-content active" data-lang="es">Transporte</span>
+                                    <span class="lang-content" data-lang="en">Transport</span>
+                                    <span class="lang-content" data-lang="ru">Транспорт</span>
+                                </span>
+                            </div>
+                            <div class="lang-content active" data-lang="es">
+                                <p class="card-text">Ubicación: Argentina. Desafío: Diseño y construcción de 320 km de vías con tecnología de balasto optimizada para reducir el mantenimiento y mejorar la seguridad.</p>
+                            </div>
+                            <div class="lang-content" data-lang="en">
+                                <p class="card-text">Location: Argentina. Challenge: Design and construction of 320 km of tracks with optimized ballast technology to reduce maintenance and improve safety.</p>
+                            </div>
+                            <div class="lang-content" data-lang="ru">
+                                <p class="card-text">Местоположение: Аргентина. Проблема: Проектирование и строительство 320 км путей с оптимизированной технологией балласта для снижения обслуживания и повышения безопасности.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="images/autocad.png" alt="Proyecto de Diseño CAD">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="lang-content active" data-lang="es">Centro de Innovación Tecnológica</span>
+                                <span class="lang-content" data-lang="en">Technology Innovation Center</span>
+                                <span class="lang-content" data-lang="ru">Центр технологических инноваций</span>
+                            </h5>
+                            <div class="mb-2">
+                                <span class="badge bg-primary">
+                                    <span class="lang-content active" data-lang="es">Infraestructura Civil</span>
+                                    <span class="lang-content" data-lang="en">Civil Infrastructure</span>
+                                    <span class="lang-content" data-lang="ru">Гражданская инфраструктура</span>
+                                </span>
+                            </div>
+                            <div class="lang-content active" data-lang="es">
+                                <p class="card-text">Ubicación: México. Tecnología Clave: Diseño paramétrico avanzado y construcción modular para reducir tiempos y costos en un 30%.</p>
+                            </div>
+                            <div class="lang-content" data-lang="en">
+                                <p class="card-text">Location: Mexico. Key Technology: Advanced parametric design and modular construction to reduce times and costs by 30%.</p>
+                            </div>
+                            <div class="lang-content" data-lang="ru">
+                                <p class="card-text">Местоположение: Мексика. Ключевая технология: Передовое параметрическое проектирование и модульное строительство для сокращения сроков и затрат на 30%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary btn-lg">
+                    <span class="lang-content active" data-lang="es">Ver Portafolio Completo</span>
+                    <span class="lang-content" data-lang="en">View Complete Portfolio</span>
+                    <span class="lang-content" data-lang="ru">Посмотреть полный портфолио</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-content active" data-lang="es">Conoce Nuestro Trabajo</span>
+                <span class="lang-content" data-lang="en">Meet Our Work</span>
+                <span class="lang-content" data-lang="ru">Познакомьтесь с нашей работой</span>
+            </h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ratio ratio-16x9">
+                        <video id="mainVideo" controls>
+                            <source src="video/videoesp.mp4" type="video/mp4">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-primary" onclick="changeVideo('videoesp.mp4')">
+                                <span class="lang-content active" data-lang="es">Español</span>
+                                <span class="lang-content" data-lang="en">Spanish</span>
+                                <span class="lang-content" data-lang="ru">Испанский</span>
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" onclick="changeVideo('videoeng.mp4')">
+                                <span class="lang-content active" data-lang="es">Inglés</span>
+                                <span class="lang-content" data-lang="en">English</span>
+                                <span class="lang-content" data-lang="ru">Английский</span>
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" onclick="changeVideo('videorus.mp4')">
+                                <span class="lang-content active" data-lang="es">Ruso</span>
+                                <span class="lang-content" data-lang="en">Russian</span>
+                                <span class="lang-content" data-lang="ru">Русский</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-content active" data-lang="es">🤝 Asociémonos para el Futuro</span>
+                <span class="lang-content" data-lang="en">🤝 Let's Partner for the Future</span>
+                <span class="lang-content" data-lang="ru">🤝 Партнерство для будущего</span>
+            </h2>
+            <div class="lang-content active" data-lang="es">
+                <p class="mb-5">En SHIMA SPECIAL INVESTMENTS, estamos listos para llevar su visión de infraestructura a la realidad. Póngase en contacto con nuestro equipo de expertos para iniciar la conversación.</p>
+            </div>
+            <div class="lang-content" data-lang="en">
+                <p class="mb-5">At SHIMA SPECIAL INVESTMENTS, we are ready to bring your infrastructure vision to reality. Contact our team of experts to start the conversation.</p>
+            </div>
+            <div class="lang-content" data-lang="ru">
+                <p class="mb-5">В SHIMA SPECIAL INVESTMENTS мы готовы воплотить ваше видение инфраструктуры в реальность. Свяжитесь с нашей командой экспертов, чтобы начать разговор.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">
+                                    <span class="lang-content active" data-lang="es">Nombre</span>
+                                    <span class="lang-content" data-lang="en">Name</span>
+                                    <span class="lang-content" data-lang="ru">Имя</span>
+                                </label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="company" class="form-label">
+                                    <span class="lang-content active" data-lang="es">Empresa</span>
+                                    <span class="lang-content" data-lang="en">Company</span>
+                                    <span class="lang-content" data-lang="ru">Компания</span>
+                                </label>
+                                <input type="text" class="form-control" id="company">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">
+                                    <span class="lang-content active" data-lang="es">Email</span>
+                                    <span class="lang-content" data-lang="en">Email</span>
+                                    <span class="lang-content" data-lang="ru">Email</span>
+                                </label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">
+                                    <span class="lang-content active" data-lang="es">Teléfono</span>
+                                    <span class="lang-content" data-lang="en">Phone</span>
+                                    <span class="lang-content" data-lang="ru">Телефон</span>
+                                </label>
+                                <input type="tel" class="form-control" id="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">
+                                    <span class="lang-content active" data-lang="es">Mensaje</span>
+                                    <span class="lang-content" data-lang="en">Message</span>
+                                    <span class="lang-content" data-lang="ru">Сообщение</span>
+                                </label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <span class="lang-content active" data-lang="es">Enviar Mensaje</span>
+                                <span class="lang-content" data-lang="en">Send Message</span>
+                                <span class="lang-content" data-lang="ru">Отправить сообщение</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ps-lg-5">
+                        <div class="mb-5">
+                            <h4>
+                                <span class="lang-content active" data-lang="es">Sede Corporativa</span>
+                                <span class="lang-content" data-lang="en">Corporate Headquarters</span>
+                                <span class="lang-content" data-lang="ru">Корпоративный офис</span>
+                            </h4>
+                            <p><i class="fas fa-map-marker-alt me-2"></i> Ciudad de Panamá, Panamá</p>
+                            <p><i class="fas fa-phone me-2"></i> +507 XXX-XXXX</p>
+                            <p><i class="fas fa-envelope me-2"></i> info@shimainvestments.com</p>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <h4>
+                                <span class="lang-content active" data-lang="es">Síganos</span>
+                                <span class="lang-content" data-lang="en">Follow Us</span>
+                                <span class="lang-content" data-lang="ru">Подписывайтесь на нас</span>
+                            </h4>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <img src="images/govern.png" alt="Autoridades Entrega Obra" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>SHIMA SPECIAL INVESTMENTS</h5>
+                    <p>
+                        <span class="lang-content active" data-lang="es">Ingeniería Civil Global con Visión de Futuro</span>
+                        <span class="lang-content" data-lang="en">Global Civil Engineering with Future Vision</span>
+                        <span class="lang-content" data-lang="ru">Глобальное гражданское строительство с видением будущего</span>
+                    </p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>
+                        <span class="lang-content active" data-lang="es">Enlaces Rápidos</span>
+                        <span class="lang-content" data-lang="en">Quick Links</span>
+                        <span class="lang-content" data-lang="ru">Быстрые ссылки</span>
+                    </h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#home">
+                            <span class="lang-content active" data-lang="es">Inicio</span>
+                            <span class="lang-content" data-lang="en">Home</span>
+                            <span class="lang-content" data-lang="ru">Главная</span>
+                        </a></li>
+                        <li><a href="#about">
+                            <span class="lang-content active" data-lang="es">Acerca de Nosotros</span>
+                            <span class="lang-content" data-lang="en">About Us</span>
+                            <span class="lang-content" data-lang="ru">О нас</span>
+                        </a></li>
+                        <li><a href="#services">
+                            <span class="lang-content active" data-lang="es">Servicios</span>
+                            <span class="lang-content" data-lang="en">Services</span>
+                            <span class="lang-content" data-lang="ru">Услуги</span>
+                        </a></li>
+                        <li><a href="#projects">
+                            <span class="lang-content active" data-lang="es">Proyectos</span>
+                            <span class="lang-content" data-lang="en">Projects</span>
+                            <span class="lang-content" data-lang="ru">Проекты</span>
+                        </a></li>
+                        <li><a href="#contact">
+                            <span class="lang-content active" data-lang="es">Contacto</span>
+                            <span class="lang-content" data-lang="en">Contact</span>
+                            <span class="lang-content" data-lang="ru">Контакт</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>
+                        <span class="lang-content active" data-lang="es">Miembros de</span>
+                        <span class="lang-content" data-lang="en">Members of</span>
+                        <span class="lang-content" data-lang="ru">Члены</span>
+                    </h5>
+                    <p>
+                        <span class="lang-content active" data-lang="es">Asociación de Ingenieros Civiles de Panamá</span>
+                        <span class="lang-content" data-lang="en">Panama Civil Engineers Association</span>
+                        <span class="lang-content" data-lang="ru">Ассоциация гражданских инженеров Панамы</span>
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4 bg-white">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p>&copy; 2025 SHIMA Special Investments. 
+                        <span class="lang-content active" data-lang="es">Todos los derechos reservados.</span>
+                        <span class="lang-content" data-lang="en">All rights reserved.</span>
+                        <span class="lang-content" data-lang="ru">Все права защищены.</span>
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-links me-3">
+                        <span class="lang-content active" data-lang="es">Aviso Legal</span>
+                        <span class="lang-content" data-lang="en">Legal Notice</span>
+                        <span class="lang-content" data-lang="ru">Юридическое уведомление</span>
+                    </a>
+                    <a href="#" class="footer-links">
+                        <span class="lang-content active" data-lang="es">Política de Privacidad</span>
+                        <span class="lang-content" data-lang="en">Privacy Policy</span>
+                        <span class="lang-content" data-lang="ru">Политика конфиденциальности</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/507XXXXXXXX?text=Shima%20esta%20a%20su%20disposicion,%20donde%20podemos%20colaborar%20en%20su%20proyecto?" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Cambio de idioma
+        function changeLanguage(lang) {
+            // Ocultar todo el contenido en todos los idiomas
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Mostrar solo el contenido en el idioma seleccionado
+            document.querySelectorAll(`.lang-content[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            
+            // Actualizar el texto del botón de idioma
+            const langButton = document.getElementById('currentLang');
+            langButton.innerHTML = `<i class="fas fa-globe"></i> ${lang.toUpperCase()}`;
+            
+            // Actualizar el atributo lang del HTML
+            document.documentElement.lang = lang;
+            
+            // Actualizar los textos de navegación
+            document.querySelectorAll('.nav-link[data-lang-es]').forEach(link => {
+                link.textContent = link.getAttribute(`data-lang-${lang}`);
+            });
+            
+            // Actualizar el video según el idioma
+            if (lang === 'es') {
+                changeVideo('videoesp.mp4');
+            } else if (lang === 'en') {
+                changeVideo('videoeng.mp4');
+            } else if (lang === 'ru') {
+                changeVideo('videorus.mp4');
+            }
+        }
+        
+        // Cambio de video
+        function changeVideo(videoSrc) {
+            const video = document.getElementById('mainVideo');
+            video.src = `video/${videoSrc}`;
+            video.load();
+        }
+        
+        // Manejo del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener el idioma actual
+            let currentLang = 'es';
+            document.querySelectorAll('.lang-content.active').forEach(el => {
+                if (el.dataset.lang) {
+                    currentLang = el.dataset.lang;
+                }
+            });
+            
+            // Mensaje de éxito según el idioma
+            let successMessage = '';
+            if (currentLang === 'es') {
+                successMessage = '¡Su mensaje ha sido enviado con éxito! Nos pondremos en contacto pronto.';
+            } else if (currentLang === 'en') {
+                successMessage = 'Your message has been sent successfully! We will contact you soon.';
+            } else if (currentLang === 'ru') {
+                successMessage = 'Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.';
+            }
+            
+            // Mostrar mensaje de éxito
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success mt-3';
+            alertDiv.textContent = successMessage;
+            
+            // Insertar el mensaje después del formulario
+            this.parentNode.appendChild(alertDiv);
+            
+            // Resetear el formulario
+            this.reset();
+            
+            // Eliminar el mensaje después de 5 segundos
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        });
+        
+        // Smooth scrolling para enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 70; // Ajustar para el navbar fijo
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Activar el enlace de navegación actual según la posición de scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
